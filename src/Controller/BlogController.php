@@ -29,6 +29,7 @@ public function viewAllBlogs(SerializerInterface $serializer){
  * @Route("/blog/view/{id}",methods = {"GET"}, name = "view_blog_by_id_api")
  */
 Public function viewBlogById(SerializerInterface $serializer,$id){
+    
     $blog = $this -> getDoctrine()-> getRepository(Blog::class)->find($id);
     $json = $serializer ->serialize($blog,'json');
     $xml = $serializer -> serialize($blog,'xml');
